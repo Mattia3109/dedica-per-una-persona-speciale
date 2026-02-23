@@ -13,12 +13,45 @@
 
         body {
             font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #ff0000;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hearts-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .heart-item {
+            position: absolute;
+            font-size: 2em;
+            opacity: 0.6;
+            animation: float 6s infinite ease-in;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
         }
 
         .container {
@@ -30,6 +63,7 @@
             text-align: center;
             min-height: 500px;
             position: relative;
+            z-index: 10;
         }
 
         .star-icon {
@@ -175,6 +209,7 @@
     </style>
 </head>
 <body>
+    <div class="hearts-background" id="hearts-background"></div>
     <div class="container">
         <div class="star-icon">✨</div>
         
