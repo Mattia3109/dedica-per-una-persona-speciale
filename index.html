@@ -49,7 +49,7 @@
 
         .carousel {
             position: relative;
-            min-height: 350px;
+            min-height: 500px;
         }
 
         .dedica {
@@ -66,11 +66,20 @@
             display: block;
         }
 
+        .dedica-image {
+            width: 100%;
+            height: 250px;
+            border-radius: 15px;
+            object-fit: cover;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
         .message {
             color: #555;
             font-size: 18px;
             line-height: 1.8;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             font-style: italic;
         }
 
@@ -169,19 +178,133 @@
     <div class="container">
         <div class="star-icon">✨</div>
         
-        <h1>Dedica per una persona speciale</h1>
+        <h1>Dediche per una persona speciale</h1>
         
         <div class="divider"></div>
         
-        <p class="message">
-            Ci sono persone che brillano di luce propria e, passandoti accanto, ti insegnano a splendere. Grazie per la tua rara capacità di vedere il bello ovunque, anche dove vedo solo confusione. Sei un dono prezioso.
-        </p>
-        
+        <div class="carousel">
+            <div class="dedica active">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=250&fit=crop" alt="Persone felici" class="dedica-image">
+                <p class="message">
+                    Ci sono persone che brillano di luce propria e, passandoti accanto, ti insegnano a splendere. Grazie per la tua rara capacità di vedere il bello ovunque, anche dove vedo solo confusione. Sei un dono prezioso.
+                </p>
+            </div>
+
+            <div class="dedica">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=250&fit=crop&q=80&crop=faces" alt="Amicizia" class="dedica-image">
+                <p class="message">
+                    Nel mare di persone ordinarie, tu sei una perla rara. La tua gentilezza trasforma i momenti difficili in opportunità di crescita. Grazie di esserci e di credere sempre nel meglio di noi.
+                </p>
+            </div>
+
+            <div class="dedica">
+                <img src="https://images.unsplash.com/photo-1517457373614-b7152f800fd1?w=600&h=250&fit=crop" alt="Persone insieme" class="dedica-image">
+                <p class="message">
+                    Sei quella persona che grida silenziosamente a chi è perduto. Con i tuoi occhi pieni di speranza, insegni che anche nelle tenebre c'è sempre una via. Grazie di essere la luce che ci guida.
+                </p>
+            </div>
+
+            <div class="dedica">
+                <img src="https://images.unsplash.com/photo-1529276543645-b89bad126eae?w=600&h=250&fit=crop" alt="Conversazione sincera" class="dedica-image">
+                <p class="message">
+                    Non tutti capiscono quanto sia prezioso il dono di ascoltare senza giudicare, di comprendere senza chiedere. Tu lo fai naturalmente, e questo ti rende straordinaria. Grazie di toccare le vite con tanta consapevolezza.
+                </p>
+            </div>
+
+            <div class="dedica">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=250&fit=crop&q=80" alt="Persone che si amano" class="dedica-image">
+                <p class="message">
+                    Ci sono persone che non cambiano il mondo con gesti eclatanti, ma con la costanza del loro amore. Tu sei una di queste. Il tuo valore non ha prezzo. Grazie di ricordarci cosa conti davvero.
+                </p>
+            </div>
+
+            <div class="dedica">
+                <img src="https://images.unsplash.com/photo-1517457373614-b7152f800fd1?w=600&h=250&fit=crop&q=80" alt="Connessione umana" class="dedica-image">
+                <p class="message">
+                    La tua anima è un libro aperto dove chiunque ha il diritto di leggere bellezza, verità e speranza. Non smettere mai di mantenere vivo questo fuoco sacro. Sei un'ispirazione silenziosa.
+                </p>
+            </div>
+
+            <div class="dedica">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=250&fit=crop&q=75" alt="Sorrisi sinceri" class="dedica-image">
+                <p class="message">
+                    Grazie per i sorrisi che regali nei giorni grigi, per le parole che guariscono, per la semplicità con cui vivi. Tu sei la prova che l'eccellenza non è complicazione, ma autenticità.
+                </p>
+            </div>
+
+            <div class="dedica">
+                <img src="https://images.unsplash.com/photo-1517457373614-b7152f800fd1?w=600&h=250&fit=crop&q=85" alt="Bellezza della semplicità" class="dedica-image">
+                <p class="message">
+                    In un mondo che urla, tu sussurri verità. In un mondo che corre, tu insegni a camminare consapevolmente. Sei rara, sei preziosa, sei esattamente quello di cui abbiamo bisogno.
+                </p>
+            </div>
+        </div>
+
         <div class="divider"></div>
+        
+        <div class="controls">
+            <button onclick="previousDedica()">← Precedente</button>
+            <button onclick="nextDedica()">Successiva →</button>
+        </div>
+
+        <div class="pagination" id="pagination"></div>
+
+        <div class="counter">
+            <span id="current">1</span> / <span id="total">8</span>
+        </div>
         
         <div class="footer">
             Con stima e gratitudine <span class="heart">♥</span>
         </div>
     </div>
+
+    <script>
+        let currentIndex = 0;
+        const dediche = document.querySelectorAll('.dedica');
+        const totalDediche = dediche.length;
+
+        // Crea i pallini di navigazione
+        function createPagination() {
+            const paginationDiv = document.getElementById('pagination');
+            for (let i = 0; i < totalDediche; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'dot ' + (i === 0 ? 'active' : '');
+                dot.onclick = () => goToDedica(i);
+                paginationDiv.appendChild(dot);
+            }
+        }
+
+        function showDedica(index) {
+            dediche.forEach(d => d.classList.remove('active'));
+            dediche[index].classList.add('active');
+
+            // Aggiorna i pallini
+            document.querySelectorAll('.dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+
+            // Aggiorna il contatore
+            document.getElementById('current').textContent = index + 1;
+        }
+
+        function nextDedica() {
+            currentIndex = (currentIndex + 1) % totalDediche;
+            showDedica(currentIndex);
+        }
+
+        function previousDedica() {
+            currentIndex = (currentIndex - 1 + totalDediche) % totalDediche;
+            showDedica(currentIndex);
+        }
+
+        function goToDedica(index) {
+            currentIndex = index;
+            showDedica(currentIndex);
+        }
+
+        // Inizializza
+        createPagination();
+        showDedica(0);
+    </script>
 </body>
 </html>
