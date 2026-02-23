@@ -294,6 +294,26 @@
     </div>
 
     <script>
+        // Crea cuori colorati di sfondo
+        const colors = ['#ff1493', '#ff69b4', '#ffb6c1', '#ffc0cb', '#ff0000', '#ff4500', '#ff8c00', '#ffa500', '#ffff00', '#ffb6d9', '#ff69a3', '#ee82ee', '#da70d6', '#ba55d3', '#9370db'];
+        const heartsContainer = document.getElementById('hearts-background');
+        
+        function createHearts() {
+            for (let i = 0; i < 40; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-item';
+                heart.textContent = '❤';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                heart.style.animationDelay = Math.random() * 6 + 's';
+                heart.style.animationDuration = (4 + Math.random() * 4) + 's';
+                heart.style.fontSize = (1 + Math.random() * 2) + 'em';
+                heartsContainer.appendChild(heart);
+            }
+        }
+        
+        createHearts();
+
         let currentIndex = 0;
         const dediche = document.querySelectorAll('.dedica');
         const totalDediche = dediche.length;
