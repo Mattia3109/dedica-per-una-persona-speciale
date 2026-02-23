@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dedica per una persona speciale</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            padding: 60px 40px;
+            text-align: center;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .star-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: twinkle 2s infinite;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 28px;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .message {
+            color: #333;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            margin: 30px auto;
+        }
+
+        .footer {
+            color: #999;
+            font-size: 14px;
+            margin-top: 30px;
+            font-weight: 300;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .heart {
+            color: #e91e63;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="star-icon">✨</div>
+        
+        <h1>Dedica per una persona speciale</h1>
+        
+        <div class="divider"></div>
+        
+        <p class="message">
+            Ci sono persone che brillano di luce propria e, passandoti accanto, ti insegnano a splendere. Grazie per la tua rara capacità di vedere il bello ovunque, anche dove vedo solo confusione. Sei un dono prezioso.
+        </p>
+        
+        <div class="divider"></div>
+        
+        <div class="footer">
+            Con stima e gratitudine <span class="heart">♥</span>
+        </div>
+    </div>
+</body>
+</html>
