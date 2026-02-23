@@ -1,0 +1,1 @@
+# dedica-per-una-persona-speciale
